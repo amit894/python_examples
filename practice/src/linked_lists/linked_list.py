@@ -38,4 +38,4 @@ L1.head=N1
 N1.next=N2
 N2.next=N3
 L1.print_elements()
-print(L1.count_elements())m
+print(L1.count_elements())
