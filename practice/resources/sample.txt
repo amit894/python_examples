@@ -1,0 +1,2 @@
+Adding content to the file
+Appending content to the file
