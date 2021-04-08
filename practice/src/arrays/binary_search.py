@@ -15,3 +15,6 @@ A = [1,2,3,4,5]
 n =len(A)
 x=binary_search(A,0,n-1,2)
 print(x)
+
+#Time Complexity : O(log n)
+#Auxililary Space Complexity: O(1)
