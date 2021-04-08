@@ -1,5 +1,5 @@
 def left_rotate(a,d,n):
-	for i in range(1,d):
+	for i in range(d):
 		left_rotate_by_one(a,n)
 
 def left_rotate_by_one(a,n):
@@ -11,3 +11,6 @@ def left_rotate_by_one(a,n):
 A = [1,2,3,4]
 left_rotate(A,6,4)
 print (A)
+
+#Time Complexity : O(d*n)
+#Auxililary Space Complexity: O(1)
