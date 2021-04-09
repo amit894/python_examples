@@ -3,11 +3,11 @@ def binary_search(A,low,high,item):
     if(high>=low):
         mid = (high+low)//2
         if (item>=A[mid]):
-            binary_search(A,mid+1,high,item)
+            binary_search(A,mid+1,high,item) # Item bigger than the middle condition loop
         else:
-            binary_search(A,low,mid-1,item)
+            binary_search(A,low,mid-1,item) # Item smaller than the middle condition loop
     else:
-        return (-1)
+        return (-1) # Recurrsion base condition
     return mid
 
 

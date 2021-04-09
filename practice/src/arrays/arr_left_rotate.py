@@ -5,7 +5,7 @@ def left_rotate(a,d,n):
 def left_rotate_by_one(a,n):
 	temp=a[0]
 	for i in range(n-1):
-		a[i]=a[i+1]
+		a[i]=a[i+1] 
 	a[n-1]=temp
 
 A = [1,2,3,4]
