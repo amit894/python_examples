@@ -19,9 +19,9 @@ def left_rotate(A,d,n):
         j=i
         while 1:
             k=j+d
-            if k>=n:
+            if k>=n: #Diving K by N, so that no array bound of exception
                 k=k-n
-            if k==i:
+            if k==i: # The first set getting repeated condition
                 break
             A[j]=A[k]
             j=k
