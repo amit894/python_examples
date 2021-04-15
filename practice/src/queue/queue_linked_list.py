@@ -1,58 +1,49 @@
 class Node:
-	def __init__(self, data):
-		self.data=data
-		self.next=None
-
+    def __init__(self,data):
+        self.data=data
+        self.next=None
 
 class Queue:
+    def __init__(self):
+        self.head=None
 
-	def __init__(self):
-		self.head = None
+    def queue_size(self):
+        count=0
+        current_node=self.head
+        if(current_node==None):
+            return 0
+        else:
+            while(current_node!=None):
+                count+=1
+                current_node=current_node.next
+        return count
 
-	def isempty(self):
-		if(self.head==None):
-			return True
+    def print_queue(self):
+        current_node=self.head
+        if(current_node==None):
+            print ("No elements in the queue")
+        else:
+            while(current_node!=None):
+                print ("Data is %d" %current_node.data)
+                current_node=current_node.next
 
-	def size_queue(self):
-		if self.isempty():
-			return 0
-		else:
-			element=self.head
-			size = 0
-			while(element!=None):
-				size=size+1
-				element=element.next
-			return size
+    def peek(self):
+        if(self.head==None):
+            print ("No elements in the queue nothing to peek")
+        else:
+            print ("Data is %d" %self.head.data)
 
-	def print_queue(self):
-		if self.isempty():
-			return 0
-		else:
-			element=self.head
-			while(element!=None):
-				print("%d" %element.data)
-				element=element.next
 
-	def peek(self):
-		if self.isempty():
-			print ("Empty Queue nothing to peek")
-		else:
-			element=self.head
-			print ("First element of the Queue is %d" %element.data)
+    def pop(self):
+        if(self.head==None):
+            print ("No elements in the queue nothing to pop")
+        else:
+            self.head=self.head.next
 
-	def push(self,node):
-		if self.isempty():
-			self.head=node
-		else:
-		    prev_head=self.head
-		    self.head=node
-		    node.next=prev_head
-
-	def pop(self):
-		if self.isempty():
-			print ("Empty Queue nothing to pop")
-		else:
-			self.head=self.head.next
+    def push(self,node):
+        if(self.head!=None):
+            node.next=self.head
+        self.head=node
 
 Q1=Queue()
 Q1.peek()
