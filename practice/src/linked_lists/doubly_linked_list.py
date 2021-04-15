@@ -28,6 +28,17 @@ class DoublyLinkedList():
 				print("%d" %element.data)
 				element=element.next
 
+	def print_reverse_elements(self):
+		element=self.head
+		if(element==None):
+			print("Empty List")
+		else:
+			while(element.next!=None):
+				element=element.next
+			while(element!=None):
+				print("Data is %d" %element.data)
+				element=element.prev
+
 	def insert_at_head(self,node):
 		if(self.head==None):
 			self.head=Node
@@ -76,4 +87,4 @@ L1.insert_after(N1, N9)
 L1.insert_after(N9, N10)
 L1.insert_after(N4, N7)
 L1.insert_after(N3, N8)
-L1.print_elements()
+L1.print_reverse_elements()
