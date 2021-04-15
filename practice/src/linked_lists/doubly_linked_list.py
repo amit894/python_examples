@@ -48,18 +48,15 @@ class DoublyLinkedList():
 			self.head=node
 		return
 
-	def insert_after(self,prev_node,node):
-		if(self.head==None):
-			self.head=Node
-		else:
-			element=self.head
-			while(element!=None):
-				if(element==prev_node):
-					node.prev=prev_node
-					node.next=prev_node.next
-					prev_node.next=node
-					prev_node.next=node
-				element=element.next
+    def insert_after_node(self,node,prev_node):
+            if(prev_node==None):
+                    return("Prev Node can't be None")
+            else:
+                node.prev=prev_node
+                node.next=prev_node.next
+                prev_node.next=node
+                if(node.next!=None):
+                    node.next.prev=node
 
 
 N1=Node(1)
