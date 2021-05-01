@@ -8,61 +8,58 @@ class Stack:
         self.head=None
 
 
+    def is_stack_empty(self):
+        if (self.head==None):
+            return True
+        else:
+            return False
+
+
+
     def stack_size(self):
-        current_node=self.head
         count=0
-        if(current_node==None):
+        if(self.is_stack_empty()):
             return 0
         else:
+            current_node=self.head
             while(current_node!=None):
                 count+=1
                 current_node=current_node.next
         return count
 
     def print_stack(self):
-        current_node=self.head
-        if(current_node==None):
+        if(self.is_stack_empty()):
             print("Empty Stack")
             return
         else:
+            current_node=self.head
             while(current_node!=None):
                 print("Data Element %d"%current_node.data)
                 current_node=current_node.next
 
     def peek(self):
         current_node=self.head
-        if(current_node==None):
+        if(self.is_stack_empty()):
             print("Empty Stack")
-            return
         else:
-            while(current_node.next!=None):
-                current_node=current_node.next
-        print("Data Element %d" %current_node.data)
+            print("Data Element %d" %self.head.data)
 
 
     def pop(self):
         current_node=self.head
-        count=0
-        if(current_node==None):
+        if(self.is_stack_empty()):
             print("Empty Stack")
-            return
         else:
-            while(current_node.next!=None):
-                temp=current_node
-                current_node=current_node.next
-            temp.next=None
+            self.head=self.head.next
 
 
     def push(self,node):
-        current_node=self.head
-        if(current_node==None):
+        if(self.is_stack_empty()):
             self.head=node
             return
         else:
-            while(current_node!=None):
-                temp=current_node
-                current_node=current_node.next
-            temp.next=node
+            node.next=self.head
+            self.head=node
 
 
 S1=Stack()
@@ -85,23 +82,5 @@ S1.push(Node(10))
 print("De limiter")
 print("De limiter")
 S1.peek()
-print("De limiter")
-S1.print_stack()
-
-
-S1=Stack()
-S1.peek()
-S1.pop()
-S1.push(Node(2))
-S1.push(Node(4))
-S1.push(Node(6))
-S1.push(Node(8))
-S1.peek()
-S1.pop()
-S1.pop()
-S1.peek()
-S1.push(Node(4))
-S1.push(Node(6))
-S1.push(Node(8))
 print("De limiter")
 S1.print_stack()
