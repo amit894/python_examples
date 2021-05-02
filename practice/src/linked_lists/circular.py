@@ -43,6 +43,23 @@ class LinkedList:
                 else:
                     s.add(current_node)
                 current_node=current_node.next
+    #Time Complexity : O(n)
+    #Auxililary Space Complexity: O(n)
+
+    def contains_loop_2(self):
+        s = set()
+        if (self.is_list_empty()):
+            return True
+        else:
+            slow_pointer=self.head
+            fast_pointer=self.head
+            while(slow_pointer and fast_pointer and fast_pointer.next):
+                slow_pointer=slow_pointer.next
+                fast_pointer=fast_pointer.next.next
+                if (slow_pointer==fast_pointer):
+                    return True
+    #Time Complexity : O(n)
+    #Auxililary Space Complexity: O(1)
 
 llist = LinkedList()
 llist.append(Node(20))
@@ -51,9 +68,9 @@ llist.append(Node(5))
 llist.append(Node(10))
 
 # Create a loop for testing
-#llist.head.next.next.next.next = llist.head
+llist.head.next.next.next.next = llist.head
 
-if(llist.contains_loop()):
+if(llist.contains_loop_2()):
     print("Loop found")
 else:
     print("No Loop ")
