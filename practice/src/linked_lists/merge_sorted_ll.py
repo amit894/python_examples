@@ -44,6 +44,9 @@ def merge_lists(head1,head2):
         temp.next=merge_lists(head1,head2.next)
     return temp
 
+#Time Complexity : O(m+n)
+#Auxililary Space Complexity: O(m+n)
+
 
 list1 = LinkedList()
 list1.append(Node(10))
