@@ -30,27 +30,32 @@ def minValueNode(root):
             current_node=current_node.left
         return prev
 
-def deleteNode(root,key):
+def deleteNode(root,val):
     if root==None:
         return
     else:
-        if (key<root.data):
-            root.left=deleteNode(root.left,key)
-        elif (key>root.data):
-            root.right=deleteNode(root.right,key)
+        if (val<root.data):
+            root.left=deleteNode(root.left,val)
+            return root
+        elif (val>root.data):
+            root.right=deleteNode(root.right,val)
+            return root
         else:
-            if root.left==None:
+            if (root.left==None):
                 temp=root.right
                 root=None
                 return temp
-            if root.right==None:
+            elif (root.right==None):
                 temp=root.left
                 root=None
                 return temp
-            temp=minValueNode(root.right)
-            root.data=temp.data
-            root.right=deleteNode(root.right,temp.data)
+
+            rightTreeMinNode=minValueNode(root.right)
+
+            root.data=rightTreeMinNode.data
+            root.right=deleteNode(root.right,rightTreeMinNode.data)
     return root
+
 
 root=None
 root=insertNode(root,50)
@@ -68,4 +73,4 @@ deleteNode(root, 30)
 deleteNode(root, 50)
 inOrderTraversal(root)
 print("de limiter")
-print(root.data)
+inOrderTraversal(root)
