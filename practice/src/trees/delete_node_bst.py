@@ -36,10 +36,8 @@ def deleteNode(root,val):
     else:
         if (val<root.data):
             root.left=deleteNode(root.left,val)
-            return root
         elif (val>root.data):
             root.right=deleteNode(root.right,val)
-            return root
         else:
             if (root.left==None):
                 temp=root.right
