@@ -1,35 +1,41 @@
 class Node:
     def __init__(self,val):
-        self.val=val
+        self.info=val
         self.left=None
         self.right=None
 
 
-def path_to_a_node(root,a,key):
-    if root:
-        a.append(root.val)
-        if root.val==key:
-            return True
-        if ((root.left != None and path_to_a_node(root.left,a,key)) or
-            (root.right!= None and path_to_a_node(root.right,a,key))):
-            return True
-        a.pop()
-        return False
+def findLCA(root, v1, v2):
+    path1=[]
+    path2=[]
 
-def findLCA(root, n1, n2):
+    path_to_node(root,v1,path1)
+    path_to_node(root,v2,path2)
 
-    path1 = []
-    path2 = []
 
-    if (not path_to_a_node(root, path1, n1) or not path_to_a_node(root, path2, n2)):
-        return -1
+    if(len(path1)==0 and len(path2)==0):
+        return "No Path exists"
 
-    i = 0
-    while(i < len(path1) and i < len(path2)):
-        if path1[i] != path2[i]:
+    i=0
+    while (i<min(len(path1),len(path2))):
+        if path1[i]!=path2[i]:
             break
-        i += 1
-    return path1[i-1]
+        i+=1
+    return path1[i-1].info
+
+
+def path_to_node(root,v,path):
+    if root==None:
+        return
+    else:
+        path.append(root)
+        if root.info==v:
+            return True
+        if ((root.left != None and path_to_node(root.left,v,path)) or
+            (root.right!= None and path_to_node(root.right,v,path))):
+            return True
+        path.pop()
+        return False
 
 root = Node(1)
 root.left = Node(2)
