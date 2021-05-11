@@ -10,8 +10,10 @@ def is_balanced(str):
             pos=close_list.index(ch)
             if (len(stack)>0) and (open_list[pos]==stack[len(stack)-1]):
                 stack.pop()
+            else:
+                return "unbalanced"
     if len(stack)==0:
-        return "balanced" 
+        return "balanced"
     else:
         return "unbalanced"
 
