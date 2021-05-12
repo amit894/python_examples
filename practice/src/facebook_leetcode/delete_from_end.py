@@ -34,7 +34,7 @@ def deleteNode(head,m):
             prev_node=current_node
             current_node=current_node.next
         if prev_node==None:
-            head=current_node
+            head=current_node.next
         else:
             prev_node.next=current_node.next
 
